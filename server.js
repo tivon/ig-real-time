@@ -18,16 +18,16 @@ var pub = __dirname + '/public',
  * Set the 'client ID' and the 'client secret' to use on Instagram
  * @type {String}
  */
-var clientID = 'YOUR_CLIENT_ID',
-    clientSecret = 'YOUR_CLIENT_SECRET';
+var clientID = 'd79133fde4774595a9a0c4d372c45d64',
+    clientSecret = '489459e0bdbc41a58d952cc818172d90';
 
 /**
  * Set the configuration
  */
 Instagram.set('client_id', clientID);
 Instagram.set('client_secret', clientSecret);
-Instagram.set('callback_url', 'http://YOUR_URL.com/callback');
-Instagram.set('redirect_uri', 'http://YOUR_URL.com');
+Instagram.set('callback_url', 'https://tivontv.herokuapp.com/callback');
+Instagram.set('redirect_uri', 'https://tivontv.herokuapp.com');
 Instagram.set('maxSockets', 10);
 
 /**
@@ -37,9 +37,9 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'lollapalooza',
+  object_id: 'regularsonly',
   aspect: 'media',
-  callback_url: 'http://YOUR_URL.com/callback',
+  callback_url: 'https://tivontv.herokuapp.com/callback',
   type: 'subscription',
   id: '#'
 });
@@ -48,7 +48,7 @@ Instagram.subscriptions.subscribe({
  * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
  * with the tag "hashtag" lollapalooza2013
  * @type {String}
- */
+ 
 Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'lollapalooza2013',
@@ -57,12 +57,13 @@ Instagram.subscriptions.subscribe({
   type: 'subscription',
   id: '#'
 });
+*/
 
 /**
  * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
  * with the tag "hashtag" lolla2013
  * @type {String}
- */
+
 Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'lolla2013',
@@ -71,7 +72,8 @@ Instagram.subscriptions.subscribe({
   type: 'subscription',
   id: '#'
 });
-
+ */
+ 
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
 Instagram.subscriptions.unsubscribe({ id: '3668016' });
@@ -116,7 +118,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({
-      name: 'lollapalooza',
+      name: 'regularsonly',
       complete: function(data) {
         socket.emit('firstShow', { firstShow: data });
       }
