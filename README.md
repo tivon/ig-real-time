@@ -1,4 +1,4 @@
-Lollagram - Instagram Real Time App
+I forked this version of Lollagram in attempts to learn more about Instagram Real Time API - tiv 7/4/2015
 =============
 
 ## Intro
